@@ -7,6 +7,7 @@ Created on Sun Feb 10 20:08:29 2019
 """
 import cv2
 import numpy as np
+import win32api,win32con
 
 cap = cv2.VideoCapture(0)
 
@@ -47,6 +48,7 @@ while True:
         
     points.append(center)
     
+    win32api.SetCursorPos((x,y))
     res1 = cv2.bitwise_and(frame, frame, mask=mask1)
     cv2.drawContours(res1, contours, -1, (0,255,0),3)
     
